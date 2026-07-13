@@ -1,4 +1,4 @@
-package student.springframework.springrestclientexamples.api.domain;
+package student.springframework.api.api.domain;
 
 import javax.annotation.processing.Generated;
 import java.io.Serializable;

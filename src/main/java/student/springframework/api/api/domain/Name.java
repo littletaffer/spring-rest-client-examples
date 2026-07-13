@@ -1,4 +1,4 @@
-package student.springframework.springrestclientexamples.api.domain;
+package student.springframework.api.api.domain;
 
 import javax.annotation.processing.Generated;
 import java.io.Serializable;
@@ -6,10 +6,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Generated("jsonschema2pojo")
-public class Job implements Serializable {
+public class Name implements Serializable {
 
     private String title;
-    private String company;
+    private String first;
+    private String last;
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     public String getTitle() {
@@ -20,12 +21,20 @@ public class Job implements Serializable {
         this.title = title;
     }
 
-    public String getCompany() {
-        return company;
+    public String getFirst() {
+        return first;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    public void setFirst(String first) {
+        this.first = first;
+    }
+
+    public String getLast() {
+        return last;
+    }
+
+    public void setLast(String last) {
+        this.last = last;
     }
 
     public Map<String, Object> getAdditionalProperties() {
