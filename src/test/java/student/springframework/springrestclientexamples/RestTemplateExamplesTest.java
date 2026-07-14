@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  */
 public class RestTemplateExamplesTest {
 
-    public static final String API_ROOT = "https://api.predic8.de:443/shop";
+    public static final String API_ROOT = "https://api.predic8.de:443/shop/v2/";
 
     @Test
     public void getCategories() throws Exception {

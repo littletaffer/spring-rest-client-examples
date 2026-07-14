@@ -9,8 +9,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
+import org.springframework.test.web.servlet.client.MockMvcWebTestClient;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.reactive.function.BodyInserters;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,13 +22,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UserControllerTest {
 
     @Autowired
-    ApplicationContext applicationContext;
+    WebApplicationContext applicationContext;
 
     WebTestClient webTestClient;
 
     @BeforeEach
     public void setUp() throws Exception {
-        webTestClient = WebTestClient.bindToApplicationContext(applicationContext).build();
+        webTestClient = MockMvcWebTestClient.bindToApplicationContext(applicationContext).build();
     }
 
     @Test
@@ -38,8 +40,10 @@ public class UserControllerTest {
     public void formPost() throws Exception {
         MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
         formData.add("limit", "3");
+        String url = "/users";
+        System.out.println("POST URL: " + url);
 
-        webTestClient.post().uri("users")
+        webTestClient.post().uri(url)
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .body(BodyInserters.fromFormData(formData))
                 .exchange()
